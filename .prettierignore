@@ -1,0 +1,8 @@
+dist
+node_modules
+*.md
+dev-k8s
+static
+*.sh
+*.conf
+*.json

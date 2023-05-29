@@ -9,13 +9,57 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "*",
+    "onLanguage:typescript"
+   ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "codereview.helloWorld",
-        "title": "Hello World"
+        "command": "codereview.add",
+        "title": "完善检视信息"
+      }
+    ],
+    "configuration":{
+      "id":"codereview",
+      "type":"object",
+      "title":"代码检视",
+      "properties":{
+        "codereview.categories":{
+          "type":"array",
+          "title":"检视类别",
+          "description":"配置代码检视分类",
+          "items":{
+            "type":"stirng"
+          },
+          "default":[
+            "架构",
+            "最佳实践",
+            "代码样式",
+            "复杂度",
+            "错误处理",
+            "可维护性",
+            "性能",
+            "可靠性",
+            "关注点分离"
+          ]
+        }
+      }
+    },
+    "menus":{
+      "editor/context":[
+        {
+          "command":"codereview.add",
+          "group": "cv.group@1"
+        }
+      ]
+    },
+    "keybindings":[
+      {
+        "command": "codereview.add",
+        "key": "ctrl+1",
+        "mac": "ctrl+1"
       }
     ]
   },
